@@ -19,7 +19,7 @@ class HomeView extends GetView<HomeController> {
       body: SafeArea(
         child: Column(
           children: [
-            Text("HR Page"),
+            const Text("HR Page"),
             AttendanceEmployeeList(
               attendanceDate: "24-05-2002",
               checkInTime: "09.00",

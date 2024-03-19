@@ -1,17 +1,21 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 
 class AttendanceEmployeeList extends StatelessWidget {
   final String attendanceDate;
   final String checkInTime;
   final String checkOutTime;
-  TextStyle? styleCardText;
+  TextStyle? styleAttendanceCardText;
+  TextStyle? styleTimeAttendanceCard;
 
   AttendanceEmployeeList({
     super.key,
     required this.attendanceDate,
     required this.checkInTime,
     required this.checkOutTime,
-    this.styleCardText,
+    this.styleAttendanceCardText,
+    this.styleTimeAttendanceCard,
   });
 
   @override
@@ -27,10 +31,10 @@ class AttendanceEmployeeList extends StatelessWidget {
             BoxShadow(
               blurRadius: 8.0,
               color: Color(0x48000000),
-              offset: Offset(0.0, 1.0),
+              offset: Offset(0, 1),
             )
           ],
-          borderRadius: BorderRadius.circular(10.0),
+          borderRadius: BorderRadius.circular(10),
         ),
         child: Padding(
           padding: const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
@@ -45,7 +49,7 @@ class AttendanceEmployeeList extends StatelessWidget {
                 children: [
                   Text(
                     attendanceDate,
-                    style: styleCardText,
+                    style: styleAttendanceCardText,
                   )
                 ],
               ),
@@ -53,8 +57,14 @@ class AttendanceEmployeeList extends StatelessWidget {
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("In Time : $checkInTime"),
-                  Text("Out Time : $checkOutTime"),
+                  Text(
+                    "In Time : $checkInTime",
+                    style: styleTimeAttendanceCard,
+                  ),
+                  Text(
+                    "Out Time : $checkOutTime",
+                    style: styleTimeAttendanceCard,
+                  ),
                 ],
               )
             ],
